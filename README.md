@@ -6,26 +6,6 @@
 * [user](#user-methods)
 
 ### Admin methods
-#### Get User List
-```
-    METHOD  GET
-    URL     api/v1/admin/get-user-list
-    HEADER  Authorization: Bearer {token}
-    PARAMS  ?page=0&size=10
-    
-    Response Body
-    {
-        "code": 200,
-        "message": "success",
-        "data": {
-            "content": [],
-            "totalElements": 10,
-            "totalPages": 1,
-            "size": 1,
-            "numberOfElements": 10
-        }
-    }
-```
 #### Get City List
 ```
     METHOD  GET
@@ -53,7 +33,7 @@
 ```
 #### Add City
 ```
-    METHOD  GET
+    METHOD  POST
     URL     api/v1/admin/add-city
     HEADER  Authorization: Bearer {token}
     Request Body 
@@ -94,7 +74,7 @@
 ```
 #### Update User Details
 ```
-    METHOD  GET
+    METHOD  POST
     URL     api/v1/admin/update
     HEADER  Authorization: Bearer {token}
     
@@ -117,7 +97,7 @@
 
 #### Subscribe To City
 ```
-    METHOD  GET
+    METHOD  POST
     URL     api/v1/user/subscribe-to-city
     HEADER  Authorization: Bearer {token}
     
