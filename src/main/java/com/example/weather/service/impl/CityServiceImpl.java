@@ -7,6 +7,7 @@ import com.example.weather.model.entity.User;
 import com.example.weather.model.response.ResponseObject;
 import com.example.weather.repository.CityRepository;
 import com.example.weather.service.CityService;
+import com.example.weather.service.WeatherService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,7 @@ import java.util.List;
 public class CityServiceImpl implements CityService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final CityRepository cityRepository;
+    private final WeatherService weatherService;
 
     @Override
     public ResponseObject getCities() {
@@ -39,6 +41,8 @@ public class CityServiceImpl implements CityService {
         city.setLatitude(request.getLatitude());
         city.setLongitude(request.getLongitude());
         city.setCountry(request.getCountry());
-        return null;
+        cityRepository.save(city);
+        weatherService.changeWeather(city);
+        return city.toDto();
     }
 }
