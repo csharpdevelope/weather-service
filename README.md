@@ -1,5 +1,7 @@
 # Weather Service
 
+[Can you see Swagger](http://localhost:8081/swagger-ui/index.html)
+
 ## List references
 
 * [admin](#admin-methods)

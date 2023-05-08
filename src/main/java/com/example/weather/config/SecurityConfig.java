@@ -12,7 +12,6 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,12 +30,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SecurityConfig {
     private final List<String> ALLOW_ALL_METHODS = List.of("POST", "GET", "PUT", "OPTION", "DELETE");
-    private final String[] ALL_URL = {"/api/v1/auth/register",
-            "/api/v1/auth/login",
-            "/swagger-ui.html",
-            "/swagger-ui/**",
-            "/v3/api-docs/**",
-            "/swagger-resources/**"};
+    private final String[] ALL_URL = {"/api/v1/auth/register", "/api/v1/auth/login", "/swagger-ui/**", "/swagger-ui.html"};
 
     private final CustomUserDetailService customUserDetailService;
     private final JwtTokenFilter jwtTokenFilter;
@@ -66,24 +60,9 @@ public class SecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/v3/api-docs/**",
-                "/swagger-ui/**",
-                "/v2/api-docs/**",
-                "/swagger-resources/**");
+        return (web) -> web.ignoring().requestMatchers(
+                "/v3/api-docs/**");
     }
-
-
-
-//    @Bean
-//    public void configure(HttpSecurity web) {
-//        web.requestMatchers("/v2/api-docs",
-//                "/configuration/ui",
-//                "/swagger-resources/**",
-//                "/configuration/security",
-//                "/swagger-ui.html",
-//                "/webjars/**");
-//    }
-
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
