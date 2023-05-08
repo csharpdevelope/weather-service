@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <include file="db/changelog/db/add-user-table.sql" />
+    <include file="db/changelog/db/add-city-table.sql" />
+    <include file="db/changelog/db/insert-mock-data.sql" />
+    <include file="db/changelog/db/alter-table-citi.sql" />
+    <include file="db/changelog/db/add-user-city-table.sql" />
+    <include file="db/changelog/db/add-column-user-table.sql" />
+    <include file="db/changelog/db/add-weather-table.sql" />
+    <include file="db/changelog/db/add-request-log-table.sql" />
+    <include file="db/changelog/db/alter-weather-table.sql" />
+    <include file="db/changelog/db/drop-user-cities.sql" />
+    <include file="db/changelog/db/alter-city-weather-table.sql" />
+    <include file="db/changelog/db/delete-foreign-key.sql" />
+    <include file="db/changelog/db/insert-city-data.sql" />
+    <include file="db/changelog/db/add-column-weahter.sql" />
+    <include file="db/changelog/db/add-column-constraint.sql" />
+    <include file="db/changelog/db/add-foregen-key.sql" />
+    <include file="db/changelog/db/add-user-subscribe-table.sql" />
+    <include file="db/changelog/db/insert-city-data-2.sql" />
+</databaseChangeLog>

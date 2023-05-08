@@ -1,0 +1,2 @@
+ALTER TABLE users
+    ADD COLUMN update_by VARCHAR(255);
