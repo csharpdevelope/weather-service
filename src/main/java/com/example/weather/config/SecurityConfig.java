@@ -30,7 +30,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SecurityConfig {
     private final List<String> ALLOW_ALL_METHODS = List.of("POST", "GET", "PUT", "OPTION", "DELETE");
-    private final String[] ALL_URL = {"/api/v1/auth/register", "/api/v1/auth/login", "/swagger-ui/**", "/swagger-ui.html"};
+    private final String[] ALL_URL = {"/swagger-ui/**", "/swagger-ui.html"};
 
     private final CustomUserDetailService customUserDetailService;
     private final JwtTokenFilter jwtTokenFilter;
@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .cors().disable()
                 .authorizeHttpRequests()
                 .requestMatchers(ALL_URL).permitAll()
+                .requestMatchers("/api/v1/auth/**").permitAll()
                 .requestMatchers("/api/v1/admin/**").hasAnyRole("ADMIN")
                 .requestMatchers("/api/v1/user/**").hasAnyRole("USER")
                 .anyRequest().permitAll()
